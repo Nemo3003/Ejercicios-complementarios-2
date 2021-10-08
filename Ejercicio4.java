@@ -1,19 +1,12 @@
 package com.informatorio;
 
 import java.util.ArrayList;
-//arreglar
-public class Ejercicio4 {
-    public static void main(String[] args){
+import java.util.List;
 
-        System.out.println("Los estudiantes de la clase numero 1 son: ");
-        indPosicion(0,4);
-        System.out.println("Los estudiantes de la clase numero 2 son: ");
-        indPosicion(4,8);
-        System.out.println("Los estudiantes de la clase numero 3 son: ");
-        indPosicion(8,12);
-    }
-    static void indPosicion (int inicio,int fin){
-        ArrayList estudiante = new ArrayList();
+public class Ejercicio4 {
+
+    public static void main(String[] args) {
+        List<String> estudiante = new ArrayList<>();
         estudiante.add("Juan");
         estudiante.add("Osvaldo");
         estudiante.add("Juana");
@@ -26,9 +19,48 @@ public class Ejercicio4 {
         estudiante.add("Braian");
         estudiante.add("Lorena");
         estudiante.add("Jose");
-        for (int i = inicio; i < fin; i++) {
-            System.out.println(estudiante.get(i));
+
+        List<String> clase1 = estudiante.subList(0, 4);
+        List<String> clase2 = estudiante.subList(4, 8);
+        List<String> clase3 =estudiante.subList(8, 12);
+
+        System.out.println(".............................");
+        System.out.println("Clase 1");
+        System.out.println(".............................");
+
+        for (String cl1 : clase1) {
+
+            System.out.println(cl1);
+
         }
 
+        System.out.println(".............................");
+        System.out.println("Clase 2");
+        System.out.println(".............................");
+
+        for (String cl2 : clase2) {
+
+            System.out.println(cl2);
+
+        }
+
+
+        System.out.println(".............................");
+        System.out.println("Clase 3");
+        System.out.println(".............................");
+
+        for (String cl3 : clase3) {
+
+            System.out.println(cl3);
+        }
     }
 }
+
+
+
+
+
+
+
+
+
