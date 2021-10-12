@@ -3,54 +3,51 @@ package com.informatorio;
 import java.util.*;
 
 public class Ejercicio6 {
-//Completar...
 
-    public static void main(String[] args)  {
-        List<String> nombreApellido = new ArrayList<>();
-        List<Integer> dni = new ArrayList<>();
-        List<Integer> horasTrabajadas = new ArrayList<>();
-        List<Integer> valorPorHora = new ArrayList<>();
-        List<Integer> totales = new ArrayList<>();
 
-        horasTrabajadas.add(6);           nombreApellido.add("Valeria");          dni.add(2565484);
-        horasTrabajadas.add(7);           nombreApellido.add("Juan");             dni.add(3215646);
-        horasTrabajadas.add(8);           nombreApellido.add("Valentina");        dni.add(8798654);
-        horasTrabajadas.add(4);           nombreApellido.add("Viviana");          dni.add(3246548);
-        horasTrabajadas.add(5);           nombreApellido.add("Victor");           dni.add(3454887);
-        valorPorHora.add(350);
-        valorPorHora.add(345);
-        valorPorHora.add(550);
-        valorPorHora.add(600);
-        valorPorHora.add(320);
+    public static void main(String[] args) {
 
-        for (int i = 0; i < horasTrabajadas.size(); i++) {
-            //aquí tomo las horas trabajadas y se lo paso en multiplicacion al valor por hora
-            int hs = horasTrabajadas.get(i) * valorPorHora.get(i);
-            totales.add(hs);
-        }
-        int totalesHs = 0;
-        for (Integer hs : totales) {
-            totalesHs += hs;
+        HashSet<Employee> empleado = new HashSet<>();
+        HashMap<Integer, Float> salario = new HashMap<>();
 
+        empleado.add(new Employee("Miguel Martinez", 54642124, 6, 350));
+        empleado.add(new Employee("Juan Gonzalez", 24687368, 7, 345));
+        empleado.add(new Employee("Joselo Melgar", 94537816, 8, 550));
+        empleado.add(new Employee("Valeria VillaBlanca", 87645210, 4, 600));
+        empleado.add(new Employee("Rut Rauchbach", 798546310, 5, 320));
+
+        System.out.println("Calculo del salario de los empleados");
+
+        for (Employee lista : empleado) {
+            System.out.println(lista.nombre + " - DNI " + lista.dni + " - Horas de trabajo: " + lista.horasTrabajadas + " - Valor por hora: " + lista.valorPorHora);
         }
 
-        Set<List<String>> nombre = new HashSet<>();
-        nombre.add(nombreApellido);
-        for (String s: nombreApellido) {
-            System.out.println(s);
+        for (Employee crearUnaTabla : empleado) {
+            salario.put(crearUnaTabla.clave(), crearUnaTabla.valor());
         }
+        System.out.println("\nSalario percibido:\n");
+        salario.forEach((dni, valor) -> System.out.println("DNI: " + dni + " - Salario: " + valor));
+    }
+}
+class Employee {
+    String nombre;
+    int dni;
+    float horasTrabajadas;
+    float valorPorHora;
 
-        Set<List<Integer>> allJunto = new HashSet<>();
-        allJunto.add(dni);
-        allJunto.add(horasTrabajadas);
-        allJunto.add(valorPorHora);
-        allJunto.add(totales);
 
-        for (List<Integer> num : allJunto) {
-            System.out.println(num);
-        }
-        HashMap<Set<List<String>>, Set<List<Integer>>> theLista = new HashMap<>();
-        theLista.put(nombre,allJunto);
-        System.out.println(theLista);
+    public Employee(String nombre, int dni, float horasTrabajadas, float valorPorHora) {
+        this.nombre = nombre;
+        this.dni = dni;
+        this.horasTrabajadas = horasTrabajadas;
+        this.valorPorHora = valorPorHora;
+    }
+
+    public int clave() {
+        return this.dni;
+    }
+
+    public float valor() {
+        return this.horasTrabajadas * this.valorPorHora;
     }
 }
