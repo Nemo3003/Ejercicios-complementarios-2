@@ -16,11 +16,11 @@ public class Ejercicio7 {
         numIngresado.nextLine();
 
         for (int i = num1; i < num2; i++) {
-            if (num1 % 2 == 0 && num1 % 3 == 0) {
+            if (i % 2 == 0 && i % 3 == 0) {
                 sumaTotal.add(i + ". FizzBuzz");
-            } else if (num1 % 3 == 0) {
+            } else if i % 3 == 0) {
                 sumaTotal.add(i + ". Buzz");
-            } else if (num1 % 2 == 0) {
+            } else if (i % 2 == 0) {
                 sumaTotal.add(i + ". Fizz");
             } else {
                 System.out.println("Numero no multiplo de 2 ni de 3");
